@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#055291"
+    tools:context=".SettingsActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/user"
+        android:layout_marginTop="95dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#03A9F4"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/setname_text"
+        android:textColorHint="@color/white"
+        android:layout_below="@+id/profile_image"
+        android:textAlignment="center"
+        android:hint="Username"
+        android:inputType="textImeMultiLine"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/inputs"
+        android:padding="16sp"
+        android:drawableStart="@android:drawable/ic_media_ff"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/online_text"
+        android:layout_below="@+id/setname_text"
+        android:textAlignment="center"
+        android:hint="Hey, I am Available Now"
+        android:inputType="textImeMultiLine"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:background="@drawable/inputs"
+        android:padding="16sp"
+        android:drawableStart="@android:drawable/checkbox_on_background"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_button"
+        android:layout_below="@+id/online_text"
+        android:background="@drawable/buttons"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="UPDATE"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:inputType="textImeMultiLine"
+        android:textAllCaps="false"/>
+
+
+</RelativeLayout>
