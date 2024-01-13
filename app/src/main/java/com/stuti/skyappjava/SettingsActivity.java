@@ -30,10 +30,12 @@ public class SettingsActivity extends AppCompatActivity {
 
     private Button updatebtn;
     private EditText uname, ustatus;
-    private CircleImageView uprofileimg;
+    private CircleImageView userprofileImage;
     private String currentuserID;
     private FirebaseAuth mauth;
     private DatabaseReference rootref;
+    private static final int GalleryPick = 1;
+
 
 
     @Override
@@ -58,6 +60,16 @@ public class SettingsActivity extends AppCompatActivity {
         
         
         RetrieveUserInfo();
+        userprofileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gallaryintent = new Intent();
+                gallaryintent.setAction(Intent.ACTION_GET_CONTENT);
+                gallaryintent.setType("image/*");
+                startActivityForResult(gallaryintent,GalleryPick);
+                
+            }
+        });
 
 
     }
@@ -150,10 +162,19 @@ public class SettingsActivity extends AppCompatActivity {
         updatebtn = (Button) findViewById(R.id.update_button);
         uname = (EditText) findViewById(R.id.setname_text);
         ustatus = (EditText) findViewById(R.id.online_text);
-        uprofileimg = (CircleImageView) findViewById(R.id.profile_image);
+        userprofileImage = (CircleImageView) findViewById(R.id.profile_image);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==GalleryPick && resultCode==RESULT_OK && data!=null)
+        {
+            Uri ImageUri = data.getData();
 
+
+        }
+    }
 
     private void SendUserToMainActivity()
     {
