@@ -1,17 +1,16 @@
 package com.stuti.skyappjava;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +26,7 @@ import java.util.HashMap;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SettingsActivity extends AppCompatActivity {
+
 
     private Button updatebtn;
     private EditText uname, ustatus;
@@ -74,7 +74,14 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-   
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==GalleryPick && resultCode==RESULT_OK && data!=null)
+        {
+
+        }
+    }
 
     private void UpdateSettings()
     {
@@ -165,16 +172,8 @@ public class SettingsActivity extends AppCompatActivity {
         userprofileImage = (CircleImageView) findViewById(R.id.profile_image);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==GalleryPick && resultCode==RESULT_OK && data!=null)
-        {
-            Uri ImageUri = data.getData();
 
 
-        }
-    }
 
     private void SendUserToMainActivity()
     {
